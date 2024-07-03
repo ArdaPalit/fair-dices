@@ -1,0 +1,24 @@
+---
+title: "Fair dices"
+author: "Arda Palit"
+date: "2024-06-18"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+roll_dice <- function() {
+mydice <- 1:6
+mydices <- sample(mydice, size = 2, replace = TRUE)
+sum(mydices)
+}
+roll_dice()
+```
+
+```{r}
+more_dice <- replicate(10000, roll_dice())
+qplot(more_dice, binwidth = 1)
+```
